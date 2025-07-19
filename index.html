@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Store - Home</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* تحسين الوصولية للعناصر المخفية بصريًا ولكن قابلة للقراءة من قارئ الشاشة */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛒 My Simple E-Commerce</h1>
+    <nav>
+      <a href="admin.html">Go to Admin Panel</a>
+    </nav>
+  </header>
+
+  <section class="filters">
+    <label for="search" class="visually-hidden">Search for products</label>
+    <input 
+      type="text" 
+      id="search" 
+      placeholder="🔍 Search products..." 
+      aria-label="Search for products" 
+      title="Search for products"
+    />
+
+    <label for="category-filter" class="visually-hidden">Filter by category</label>
+    <select 
+      id="category-filter" 
+      aria-label="Filter by category" 
+      title="Filter by category"
+    >
+      <option value="all">All Categories</option>
+    </select>
+
+    <label for="sort" class="visually-hidden">Sort by price</label>
+    <select 
+      id="sort" 
+      aria-label="Sort by price" 
+      title="Sort by price"
+    >
+      <option value="default">Sort By Price</option>
+      <option value="asc">Price: Low to High</option>
+      <option value="desc">Price: High to Low</option>
+    </select>
+  </section>
+
+  <div class="slider-wrapper">
+  <button class="slider-nav left" onclick="scrollSlider(-1)">&#8592;</button>
+
+  <div class="slider-viewport">
+    <div id="product-container" class="slider-container"></div>
+  </div>
+
+  <button class="slider-nav right" onclick="scrollSlider(1)">&#8594;</button>
+</div>
+
+
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
