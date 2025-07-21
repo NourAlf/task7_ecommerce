@@ -1,12 +1,13 @@
 let products = JSON.parse(localStorage.getItem("products")) || [];
-
-
 const container = document.getElementById("product-container");
 const search = document.getElementById("search");
 const categoryFilter = document.getElementById("category-filter");
 const sortSelect = document.getElementById("sort");
+let scrollIndex = 0;
+const cardWidth = 240;
+const visibleCards = 3;
 
-// عرض المنتجات حسب الفلترة والبحث والترتيب
+
 function renderProducts() {
   let filtered = [...products];
 
@@ -35,19 +36,6 @@ function renderProducts() {
     container.appendChild(card);
   });
 }
-let scrollIndex = 0;
-const cardWidth = 240;
-const visibleCards = 3; // عرض الكرت + التباعد
-
-/*function scrollSlider(direction) {
-  scrollIndex += direction;
-
-  const maxIndex = Math.max(0, products.length - 3); // لأن نعرض 3 فقط
-  scrollIndex = Math.min(Math.max(0, scrollIndex), maxIndex);
-
-  const newScroll = scrollIndex * cardWidth;
-  container.scrollTo({ left: newScroll, behavior: "smooth" });}*/
-
 
 
 function scrollSlider(direction) {
@@ -62,9 +50,6 @@ function scrollSlider(direction) {
   container.style.transform = `translateX(${newTransform}px)`;
 }
 
-
-
-// إنشاء قائمة الفئات من المنتجات الموجودة
 function populateCategories() {
   const categories = new Set(products.map(p => p.category));
   categoryFilter.innerHTML = '<option value="all">All Categories</option>';
@@ -76,9 +61,10 @@ function populateCategories() {
   });
 }
 
-// تحديث العرض عند التفاعل
-[search, categoryFilter, sortSelect].forEach(el => el.addEventListener("input", renderProducts));
+[search, categoryFilter, sortSelect].forEach(el => 
+  el.addEventListener("input", renderProducts));
 
-// تشغيل أولي
-populateCategories();
+
+
+  populateCategories();
 renderProducts();

@@ -1,13 +1,20 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+html ,header, .filters, .slider-wrapper, .admin-section {
   background-color: #121212;
   color: #f5f5f5;
-  font-family: "Segoe UI", sans-serif;
-  margin: 0;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
 }
+
+/* باقي التنسيقات كما هي: */
 header {
   background: #1f1f1f;
-  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +27,7 @@ header nav a {
   text-decoration: none;
   font-weight: bold;
 }
+
 .filters,
 .admin-section form {
   margin: 1rem 0;
@@ -27,22 +35,10 @@ header nav a {
   gap: 1rem;
   flex-wrap: wrap;
 }
+
 .filters input,
 .filters select,
-form input {
-  padding: 0.6rem;
-  border: 1px solid orange;
-  background: #1e1e1e;
-  color: white;
-  border-radius: 5px;
-}
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
+form input,
 form select {
   padding: 0.6rem;
   border: 1px solid orange;
@@ -52,24 +48,23 @@ form select {
   font-family: inherit;
 }
 
-/*.product-card {
-      width: 200px;
-      background: #2b2b2b;
-      border: 1px solid orange;
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      color: white;
-    }*/
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
 
-
-
-
-.product-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .slider-wrapper {
@@ -105,6 +100,13 @@ form select {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .slider-nav {
   position: absolute;
   top: 50%;
@@ -117,25 +119,26 @@ form select {
   color: black;
   z-index: 10;
 }
-.slider-nav.left { left: -20px; }
-.slider-nav.right { right: -20px; }
-
+.slider-nav.left {
+  left: -20px;
+}
+.slider-nav.right {
+  right: -20px;
+}
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
 }
-table,
-th,
-td {
+table, th, td {
   border: 1px solid orange;
 }
-th,
-td {
+th, td {
   padding: 0.6rem;
   text-align: left;
 }
+
 .btn {
   padding: 0.4rem 0.8rem;
   border-radius: 4px;

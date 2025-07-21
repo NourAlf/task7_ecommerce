@@ -47,13 +47,12 @@ function deleteProduct(index) {
 form.addEventListener("submit", e => {
   e.preventDefault();
 
-  // اجلب القيم من الحقول، لاحظ أن فئة المنتج الآن من select
+  
   const name = document.getElementById("product-name").value.trim();
   const price = parseFloat(document.getElementById("product-price").value);
   const category = document.getElementById("product-category").value;
   const image = document.getElementById("product-image").value.trim();
 
-  // تحقق من صحة البيانات (مثلاً، لا تسمح بالقيمة الفارغة في الفئة)
   if (!category) {
     alert("يرجى اختيار فئة المنتج.");
     return;
@@ -64,7 +63,7 @@ form.addEventListener("submit", e => {
   renderAdminTable();
   form.reset();
 
-  // إعادة تعيين الخيار الافتراضي لقائمة الفئات
+
   document.getElementById("product-category").value = "";
 });
 
